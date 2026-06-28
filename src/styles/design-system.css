@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg-900: #080f1f;
+  --bg-800: #0f172a;
+  --surface: #121c33;
+  --surface-2: #1a2742;
+  --primary: #4da3ff;
+  --primary-2: #6bc4ff;
+  --creative: #8b5cf6;
+  --text: #e7eefc;
+  --muted: #9cb1d2;
+  --border: rgba(113, 164, 255, 0.24);
+  --border-strong: rgba(113, 164, 255, 0.5);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-7: 3.5rem;
+  --space-8: 4rem;
+
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-soft: 0 12px 28px rgba(5, 10, 28, 0.32);
+  --shadow-lift: 0 18px 36px rgba(5, 10, 28, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #12223f 0%, var(--bg-900) 40%, #050a17 100%);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-2);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(77, 163, 255, 0.55);
+}
+
+.section-head {
+  max-width: 740px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.section-head .title {
+  margin-top: 0;
+}
+
+.section-head .subtitle {
+  margin: 1rem auto 0;
+  max-width: 680px;
+}
+
+.section-divider {
+  width: min(420px, 55%);
+  height: 1px;
+  margin: 1.75rem auto 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--primary-2);
+  background: rgba(109, 175, 255, 0.12);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1rem 0 0.8rem;
+  font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+  line-height: 1.15;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(26, 39, 66, 0.92), rgba(18, 28, 51, 0.92));
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--border-strong);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 0.75rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #081325;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(91, 167, 255, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: rgba(109, 175, 255, 0.08);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.38rem 0.75rem;
+  font-size: 0.77rem;
+  color: var(--primary-2);
+  background: rgba(109, 175, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.3rem 0;
+  }
+
+  .container {
+    width: min(1120px, calc(100% - 1.3rem));
+  }
+}
